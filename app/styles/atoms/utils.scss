@@ -1,0 +1,70 @@
+// Utils
+
+
+@mixin imageInSvg($width, $height, $paddingTop, $paddingRight, $paddingBottom, $paddingLeft){
+
+  width: $width;
+  height: $height;
+
+  .image-container {
+    width: 100%;
+    height: 100%;
+    padding: $paddingTop $paddingRight $paddingBottom $paddingLeft;
+  }
+
+  svg.frame {
+    width: $width;
+    height: $height;
+  }
+}
+
+@mixin transition($prop, $timing, $ease, $delay) {
+
+  -webkit-transition: $prop $timing $ease $delay;  /* Chrome 1-25, Safari 3.2+ */
+  -moz-transition: $prop $timing $ease $delay;  /* Firefox 4-15 */
+  -o-transition: $prop $timing $ease $delay;  /* Opera 10.50–12.00 */
+  transition: $prop $timing $ease $delay;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+}
+
+@mixin placeholderColor($color) {
+
+  ::-webkit-input-placeholder { /* WebKit browsers */
+      color: $color;
+  }
+
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+      color: $color;
+  }
+
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color: $color;
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer 10+ */
+      color: $color;
+  }
+}
+
+//used to hide menu items where that option is not availible.
+@function customRange($min, $max){
+  @return "#{$screen} and (min-width:#{lower-bound(($min, $max))}) and (max-width:#{upper-bound(($min, $max))})"
+}
+
+@function customRangeHeight($min, $max){
+  @return "#{$screen} and (min-height:#{lower-bound(($min, $max))}) and (max-height:#{upper-bound(($min, $max))})"
+}
+
+// We use these functions to define ranges for various things, like media queries.
+@function lower-bound($range){
+  @if length($range) <= 0 {
+    @return 0;
+  }
+  @return nth($range,1);
+}
+
+@function upper-bound($range) {
+  @if length($range) < 2 {
+    @return 999999999999;
+  }
+  @return nth($range, 2);
+}

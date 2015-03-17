@@ -1,0 +1,14 @@
+body, html {
+  padding: 0;
+  margin: 0;
+  // font-family: $primary-type-med;
+}
+
+.ember-list-view {
+  overflow: auto;
+  position: relative;
+}
+
+.ember-list-item-view {
+  position: absolute;
+}

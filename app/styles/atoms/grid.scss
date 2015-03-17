@@ -1,0 +1,53 @@
+// semtantic idealologies - use box sizing with this.
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+}
+
+@mixin rowClear(){
+  display: block;
+
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+//gutter and padding set in vars
+@mixin row($clear: false, $gut: $gutter) {
+  width: 100%;
+  max-width: $max-width;
+  clear: both;
+  margin: 0 auto 0 auto;
+  padding-right: $gut;
+  padding-left: $gut;
+  min-height: 1px;
+
+  @if $clear {
+    @include rowClear();
+  }
+}
+
+//gutter and padding set in vars
+@mixin column($width, $pad: $padding, $center: false){
+  display: block;
+  position:relative;
+  float: left;
+  width: $width;
+  padding-right: $pad;
+  padding-left: $pad;
+
+  @if $center {
+    margin: auto auto;
+    float: none;
+  }
+}
