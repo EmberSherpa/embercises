@@ -16,13 +16,12 @@ export default Ember.Controller.extend({
 
   actions: {
     login: function(){
-      var _this = this;
 
-      this.get('auth').login(this.get('email'), this.get('password')).then(function(authData){
+      this.get('auth').login(this.get('email'), this.get('password')).then((authData)=>{
 
-        _this.set('email', '');
-        _this.set('password', '');
-        _this.transitionToRoute('/');
+        this.set('email', '');
+        this.set('password', '');
+        this.transitionToRoute('/');
       });
     }
   }

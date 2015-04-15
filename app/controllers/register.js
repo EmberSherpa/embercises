@@ -6,14 +6,13 @@ export default Ember.Controller.extend({
 
   actions: {
     register: function(){
-      var _this = this;
 
-      this.get('auth').createUser(this.get('email'), this.get('password')).then(function(){
+      this.get('auth').createUser(this.get('email'), this.get('password')).then(()=>{
 
-        _this.set('email', '');
-        _this.set('password', '');
-        _this.set('confirmPassword', '');
-        _this.transitionToRoute('login');
+        this.set('email', '');
+        this.set('password', '');
+        this.set('confirmPassword', '');
+        this.transitionToRoute('login');
       });
     }
   }

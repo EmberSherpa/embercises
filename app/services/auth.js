@@ -10,26 +10,26 @@ export default Ember.Service.extend({
   alertDetail: null,
 
   setupAuth: function(){
-    var _this = this;
 
     this.set('ref', new window.Firebase('https://embercises.firebaseio.com/'));
 
-    this.ref.onAuth(function(authData){
+    this.ref.onAuth((authData)=>{
 
-      _this.set('currentUser', authData);
+      this.set('currentUser', authData);
 
-      // _this.ref.child('users').child(authData.uid).once('value', function(snapshot){
+      // this.ref.child('users').child(authData.uid).once('value', function(snapshot){
       //   var exists = (snapshot.val() !== null);
 
       //   if(exists){
-      //     _this.ref.child('users').child(authData.uid).set(authData);
+      //     this.ref.child('users').child(authData.uid).set(authData);
       //   } else {
       //     console.log('User already exists!');
       //   }
       // });
 
+
       if (authData) {
-        console.log("User " + authData.uid + " is logged in with " + authData.provider);
+        console.log('User `${authData.uid}` is logged in with `${authData.provider}`');
       } else {
         console.log("User is logged out");
       }
@@ -40,22 +40,21 @@ export default Ember.Service.extend({
   }.on('init'),
 
   createUser: function(email, password){
-    var _this = this;
 
-    return new Ember.RSVP.Promise(function(resolve, reject){
-      _this.ref.createUser({
+    return new Ember.RSVP.Promise((resolve, reject)=>{
+      this.ref.createUser({
         email: email,
         password: password
-      }, function(err){
+      }, (err)=>{
         if(!err){
-          _this.set('authError', false);
-          _this.set('alertTitle', null);
-          _this.set('alertDetail', null);
+          this.set('authError', false);
+          this.set('alertTitle', null);
+          this.set('alertDetail', null);
           resolve();
         } else {
-          _this.set('authError', true);
-          _this.set('alertTitle', err.code);
-          _this.set('alertDetail', err.message);
+          this.set('authError', true);
+          this.set('alertTitle', err.code);
+          this.set('alertDetail', err.message);
           reject(err);
         }
       })
@@ -64,22 +63,21 @@ export default Ember.Service.extend({
   },
 
   login: function(email, password){
-    var _this = this;
 
-    return new Ember.RSVP.Promise(function(resolve, reject){
-      _this.ref.authWithPassword({
+    return new Ember.RSVP.Promise((resolve, reject)=>{
+      this.ref.authWithPassword({
         email: email,
         password: password
-      }, function(err, authData){
+      }, (err, authData)=>{
         if(!err){
-          _this.set('authError', false);
-          _this.set('alertTitle', null);
-          _this.set('alertDetail', null);
+          this.set('authError', false);
+          this.set('alertTitle', null);
+          this.set('alertDetail', null);
           resolve(authData);
         } else {
-          _this.set('authError', true);
-          _this.set('alertTitle', err.code);
-          _this.set('alertDetail', err.message);
+          this.set('authError', true);
+          this.set('alertTitle', err.code);
+          this.set('alertDetail', err.message);
           reject(err);
         }
       }, {remember: 'sessionOnly'});
@@ -94,23 +92,22 @@ export default Ember.Service.extend({
   },
 
   changeEmail: function(oldEmail, newEmail, password){
-    var _this = this;
 
-    return new Ember.RSVP.Promise(function(resolve, reject){
-      _this.ref.changeEmail({
+    return new Ember.RSVP.Promise((resolve, reject)=>{
+      this.ref.changeEmail({
         oldEmail: oldEmail,
         newEmail: newEmail,
         password: password
-      }, function(err){
+      }, (err)=>{
         if(!err){
-          _this.set('authError', false);
-          _this.set('alertTitle', null);
-          _this.set('alertDetail', null);
+          this.set('authError', false);
+          this.set('alertTitle', null);
+          this.set('alertDetail', null);
           resolve();
         } else {
-          _this.set('authError', true);
-          _this.set('alertTitle', err.code);
-          _this.set('alertDetail', err.message);
+          this.set('authError', true);
+          this.set('alertTitle', err.code);
+          this.set('alertDetail', err.message);
           reject(err);
         }
       })
@@ -119,23 +116,22 @@ export default Ember.Service.extend({
   },
 
   changePassword: function(email, oldPassword, newPassword){
-    var _this = this;
 
-    return new Ember.RSVP.Promise(function(resolve, reject){
-      _this.ref.changePassword({
+    return new Ember.RSVP.Promise((resolve, reject)=>{
+      this.ref.changePassword({
         email: email,
         oldPassword: oldPassword,
         newPassword: newPassword
-      }, function(err){
+      }, (err)=>{
         if(!err){
-          _this.set('authError', false);
-          _this.set('alertTitle', null);
-          _this.set('alertDetail', null);
+          this.set('authError', false);
+          this.set('alertTitle', null);
+          this.set('alertDetail', null);
           resolve();
         } else {
-          _this.set('authError', true);
-          _this.set('alertTitle', err.code);
-          _this.set('alertDetail', err.message);
+          this.set('authError', true);
+          this.set('alertTitle', err.code);
+          this.set('alertDetail', err.message);
           reject(err);
         }
       })
@@ -144,21 +140,20 @@ export default Ember.Service.extend({
   },
 
   resetPassword: function(email){
-    var _this = this;
 
-    return new Ember.RSVP.Promise(function(resolve, reject){
-      _this.ref.resetPassword({
+    return new Ember.RSVP.Promise((resolve, reject)=>{
+      this.ref.resetPassword({
         email: email
-      }, function(err){
+      }, (err)=>{
         if(!err){
-          _this.set('authError', false);
-          _this.set('alertTitle', null);
-          _this.set('alertDetail', null);
+          this.set('authError', false);
+          this.set('alertTitle', null);
+          this.set('alertDetail', null);
           resolve();
         } else {
-          _this.set('authError', true);
-          _this.set('alertTitle', err.code);
-          _this.set('alertDetail', err.message);
+          this.set('authError', true);
+          this.set('alertTitle', err.code);
+          this.set('alertDetail', err.message);
           reject(err);
         }
       })
@@ -167,22 +162,21 @@ export default Ember.Service.extend({
   },
 
   removeUser: function(email, password){
-    var _this = this;
 
-    return new Ember.RSVP.Promise(function(resolve, reject){
-      _this.ref.removeUser({
+    return new Ember.RSVP.Promise((resolve, reject)=>{
+      this.ref.removeUser({
         email: email,
         password: password
-      }, function(err){
+      }, (err)=>{
         if(!err){
-          _this.set('authError', false);
-          _this.set('alertTitle', null);
-          _this.set('alertDetail', null);
+          this.set('authError', false);
+          this.set('alertTitle', null);
+          this.set('alertDetail', null);
           resolve();
         } else {
-          _this.set('authError', true);
-          _this.set('alertTitle', err.code);
-          _this.set('alertDetail', err.message);
+          this.set('authError', true);
+          this.set('alertTitle', err.code);
+          this.set('alertDetail', err.message);
           reject(err);
         }
       })
