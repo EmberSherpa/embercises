@@ -11,6 +11,17 @@ var App = Ember.Application.extend({
   Resolver: Resolver
 });
 
+App.reopen({
+  init() {
+    this._super(...arguments);
+    this.register('service:router', {
+      create(attrs) {
+        return attrs.container.lookup('router:main');
+      }
+    });
+  }
+});
+
 loadInitializers(App, config.modulePrefix);
 
 export default App;

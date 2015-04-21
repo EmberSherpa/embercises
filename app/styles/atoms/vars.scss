@@ -1,35 +1,40 @@
-// GENERAL
-$white: #ffffff;
-$black: #222222;
-$bg-grey: #f3f3f3;
-$dark-grey: #464646;
-$mid-grey: #5B605F;
-$light-grey: #A1A194;
+// Layout Colors
+$brand: #15a4fa;
+$brand-text: #fff;
 
-$dark-orange: #FF6600;
-$mid-orange: #FF9230;
-$light-orange: #FFB557;
+$header-bg: #fff;
+$header-shadow: 0 3px 3px rgba(0,0,0,.1);
+$header-border-color: #efefef;
+$toggle-mobile-menu-icon-color: #fff;
+$header-menu-icon-color: #000;
+$header-menu-name-color: #444;
+$header-menu-surname-color: #111;
+$header-nav-hover-bg-color: #f0f0f0;
+$header-nav-active-bg-color: #eee;
+$header-dropdown-link-color: #000;
+$header-dropdown-hover-color: #f4f9fc;
+$header-dropdown-notread-color: #fffff2;
 
-// DESIGN SPECIFIC
+$content-bg: #f5f5f5;
+$footer-bg: #E8E8E8;
+$footer-border-color: #DBDBDB;
 
-//FONTS
-$font-size: 16px;
+$sidebar-menu-bg: #232831;
+$sidebar-menu-link-color: #e9eaee;
+$sidebar-menu-icon-color: #fff;
+$sidebar-menu-parent-link-border-color: #292e32;
+$sidebar-menu-active-color: #364760;
+$sidebar-menu-hover-color: #364760;
+$sidebar-menu-open-color: #364760;
+$sidebar-menu-haschild-color: rgba(255,255,255,.5);
+$sidebar-menu-childmenu-link-color: lighten(#232831, 5%);
+$sidebar-menu-childmenu-hover-color: #364760;
 
-// LAYOUT
-$max-width: 100%;
+$sidebar-bg: #000;
+$sidebar-text-color: #fff;
+$sidebar-border-color: #ddd;
+$sidebar-light-bg: #fff;
 
-$padding: 22px;
-$gutter: 25px;
+$breadcrumb-bg: #E8E8E8;
+$breadcrumb-border-color: #DBDBDB;
 
-//MISC
-$animDuration: 0.4s;
-
-// TYPEFACES
-
-$primary-type-bold: 'Brandon Grot W01 Black';
-$primary-type-med: 'Brandon Grot W01 Medium';
-$primary-type-light: 'Brandon Grot W01 Light';
-
-$secondary-type-bold: 'HelveticaNeueW02-75Bold';
-$secondary-type-med: 'Helvetica Neue LT W06_55 Roman';
-$secondary-type-light: 'HelveticaNeueW02-45Ligh';

@@ -57,7 +57,7 @@ export default Ember.Service.extend({
           this.set('alertDetail', err.message);
           reject(err);
         }
-      })
+      });
     });
 
   },
@@ -110,7 +110,7 @@ export default Ember.Service.extend({
           this.set('alertDetail', err.message);
           reject(err);
         }
-      })
+      });
     });
 
   },
@@ -134,7 +134,7 @@ export default Ember.Service.extend({
           this.set('alertDetail', err.message);
           reject(err);
         }
-      })
+      });
     });
 
   },
@@ -156,7 +156,7 @@ export default Ember.Service.extend({
           this.set('alertDetail', err.message);
           reject(err);
         }
-      })
+      });
     });
 
   },
@@ -179,7 +179,7 @@ export default Ember.Service.extend({
           this.set('alertDetail', err.message);
           reject(err);
         }
-      })
+      });
     });
 
   }
